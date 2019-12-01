@@ -5,7 +5,7 @@ const calcFuel = weight => {
   return Math.floor(weight / 3) - 2
 }
 
-const calcAllFuel = weight => {
+const calcAllFuelImp = weight => {
   let total = 0
   let fuel = calcFuel(weight)
   while (fuel > 0) {
@@ -14,6 +14,15 @@ const calcAllFuel = weight => {
   }
 
   return total
+}
+
+const calcAllFuel = weight => {
+  const fuel = calcFuel(weight)
+  if (fuel <= 0) {
+    return 0
+  } else {
+    return fuel + calcAllFuel(fuel)
+  }
 }
 
 const fuelSum = async () => {
