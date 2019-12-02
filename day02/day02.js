@@ -10,10 +10,11 @@ const execute = (input) => {
       input[input[i + 3]] = input[input[i + 1]] * input[input[i + 2]]
     } else if (command === 99) {
       return input
+    } else {
+      throw new Error('Invalid Command')
     }
   }
-  console.log('I Die')
-  return -1
+  throw new Error('Program does not exit correctly')
 }
 
 const executeWithReplace = (input, noun, verb) => {
